@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SandLove — Sandwich Sehat</title>
+  <meta name="description" content="SandLove — Sandwich sehat: murah, sehat, nikmat. Pesan sekarang via WhatsApp." />
+  <style>
+    :root{
+      --bun-beige: #F5D7A1; /* Toasted Bun Beige */
+      --lettuce-green: #7AC74F; /* Lettuce Green */
+      --tomato-red: #E63946; /* Tomato Red */
+      --cheese-yellow: #F9C74F; /* Cheese Yellow */
+      --grill-brown: #9B5E27; /* Grilled Brown */
+      --bg: #FFF9F2; /* Background/Accent */
+      --text: #2b2b2b;
+      --muted: #6b6b6b;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    body{font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--text); background:linear-gradient(180deg,var(--bg),#fff);}
+    a{color:inherit}
+
+    /* Header */
+    .nav{position:sticky; top:0; z-index:30; display:flex; align-items:center; justify-content:space-between; padding:14px 20px; backdrop-filter: blur(6px); background: rgba(255,249,242,0.75); border-bottom:1px solid rgba(155,94,39,0.06)}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:48px; height:48px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--bun-beige),var(--cheese-yellow)); box-shadow: 0 6px 18px rgba(155,94,39,0.12); font-weight:700; color:var(--grill-brown)}
+    .brand h1{font-size:18px; margin:0}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    .cta-small{background:var(--lettuce-green); color:white; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600}
+
+    /* Hero */
+    .hero{display:flex; gap:40px; align-items:center; padding:56px 20px; max-width:1100px; margin:0 auto}
+    .hero-left{flex:1}
+    .eyebrow{display:inline-block; padding:6px 10px; background:var(--bun-beige); border-radius:999px; font-weight:700; font-size:12px}
+    .title{font-size:38px; margin:18px 0 12px; line-height:1.05}
+    .lead{color:var(--muted); font-size:16px; margin-bottom:20px}
+    .cta-row{display:flex; gap:12px}
+    .btn-primary{background:linear-gradient(90deg,var(--lettuce-green),#5fbf35); color:white; padding:14px 18px; border-radius:14px; text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:10px}
+    .btn-outline{border:2px solid var(--grill-brown); padding:12px 16px; border-radius:12px; text-decoration:none; color:var(--grill-brown); font-weight:700}
+
+    .hero-right{flex:1; display:grid; place-items:center}
+    .product-card{width:320px; border-radius:18px; overflow:hidden; box-shadow:0 18px 40px rgba(155,94,39,0.12); background:linear-gradient(180deg, #fff 0%, var(--bg) 100%);}
+    .product-card img{width:100%; display:block}
+    .product-meta{padding:14px}
+    .price{font-weight:800; color:var(--grill-brown)}
+
+    /* Features */
+    .features{max-width:1100px; margin:40px auto; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .feat{background:linear-gradient(180deg, rgba(250,250,250,0.9), rgba(255,249,242,0.9)); padding:18px; border-radius:12px; box-shadow: 0 8px 20px rgba(155,94,39,0.06)}
+    .feat h3{margin:0 0 8px}
+    .feat p{margin:0; color:var(--muted)}
+
+    /* Testimonials */
+    .testi{max-width:900px; margin:30px auto; padding:0 20px}
+    .testi h2{margin-bottom:12px}
+    .testi-list{display:flex; gap:12px; overflow-x:auto; padding-bottom:10px}
+    .tcard{min-width:240px; background:white; border-radius:12px; padding:16px; box-shadow:0 8px 20px rgba(155,94,39,0.06)}
+    .tcard p{color:var(--muted)}
+
+    /* Footer / CTA section */
+    .cta-section{background:linear-gradient(180deg, var(--bun-beige), var(--bg)); padding:36px 20px; margin-top:30px}
+    .cta-wrap{max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px}
+
+    /* Utilities */
+    .container{max-width:1100px; margin:0 auto}
+    .muted{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column; padding:28px 16px}
+      .features{grid-template-columns:1fr}
+      .cta-wrap{flex-direction:column; align-items:stretch}
+      .nav{padding:10px 14px}
+      .logo{width:44px; height:44px}
+    }
+
+    /* small floating order button */
+    .float-order{position:fixed; right:18px; bottom:18px; z-index:60}
+    .float-order a{display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg,var(--lettuce-green),#5fbf35); color:white; font-weight:800; box-shadow:0 10px 30px rgba(122,199,79,0.16); text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <div class="logo">
+  <img src="/Gemini_Generated_Image_xhk005xhk005xhk0.png" alt="SandLove Logo" style="width:48px; height:48px; border-radius:10px; object-fit:cover;">
+</div>
+
+      <div>
+        <h1>SandLove</h1>
+        <p>Sehat • Terjangkau</p>
+      </div>
+    </div>
+    <div>
+      <!-- Placeholder WA number; replace +6281234567890 with your number -->
+      <a class="cta-small" href="https://wa.me/6282180750761?text=Halo%20SandLove!%20Saya%20mau%20pesan%20SandLove" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <span class="eyebrow">Sandwich Sehat</span>
+        <h2 class="title">SandLove — Kelezatan dan Gizi dalam Satu Gigitan</h2>
+        <p class="lead">Sandwich sehat SandLove memadukan kelezatan dan gizi dalam satu gigitan. Dibuat dari roti gandum, sayuran segar, dan isian rendah lemak, menjadi pilihan tepat untuk gaya hidup sehat dan seimbang.</p>
+
+        <div class="cta-row">
+          <a class="btn-primary" href="https://wa.me/6282180750761?text=Halo%20SandLove!%20Saya%20mau%20pesan%20SandLove" target="_blank" rel="noopener">
+            <!-- WhatsApp SVG -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48C18.12 1.08 14.84 0 11.56 0 5.3 0 .44 4.86.44 11.12c0 1.96.52 3.87 1.51 5.56L0 24l7.63-2.03c1.62.44 3.3.67 5.06.67 6.26 0 11.12-4.87 11.12-11.13 0-3.28-1.08-6.56-3.09-8.99z" fill="#25D366"/><path d="M17.3 14.97c-.4-1.99-2.32-3.58-4.24-3.76-.98-.1-1.77.45-2.34 1.04l-.68.69c-.2.2-.52.27-.79.18-.96-.34-2.25-.99-3.04-1.66-.38-.31-.51-.83-.33-1.26C6.08 9.66 7.4 7.9 8.93 6.96c.89-.57 2.02-.8 3.12-.63 3.08.45 5.48 3.46 5.14 6.71-.07.72-.3 1.29-.79 1.93z" fill="#fff"/></svg>
+            Pesan Sekarang
+          </a>
+          <a class="btn-outline" href="#features">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="product-card">
+          <img src="Screenshot 2025-11-11 224713.png" alt="SandLove Sandwich" />
+          <div class="product-meta">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div>
+                <div style="font-weight:800">SandLove Classic</div>
+                <div style="font-size:13px; color:var(--muted)">Roti • Sayur segar • Isian rendah lemak</div>
+              </div>
+              <div class="price">Rp 12.000 - Rp 18.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why SandLove -->
+<section class="why-sandlove">
+  <div class="container">
+    <h2>Kenapa Harus SandLove?</h2>
+    <p class="muted">Kami percaya makanan sehat gak harus membosankan. SandLove hadir dengan kombinasi rasa nikmat, bahan alami, dan harga bersahabat.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <img src="Gemini_Generated_Image_mbxqwimbxqwimbxq.png" alt="Sehat & Enak" class="why-icon">
+        <h3>Sehat & Enak</h3>
+        <p>Diproses dari bahan segar dan rendah lemak, memberikan energi tanpa rasa bersalah.</p>
+      </div>
+
+      <div class="why-item">
+        <img src="Gemini_Generated_Image_v8zjjfv8zjjfv8zj.png" alt="Harga Bersahabat" class="why-icon">
+        <h3>Harga Bersahabat</h3>
+        <p>Kualitas premium tapi tetap ramah di dompet, cocok buat semua kalangan.</p>
+      </div>
+
+      <div class="why-item">
+        <img src="Gemini_Generated_Image_qh0zeaqh0zeaqh0z.png" alt="Praktis & Cepat" class="why-icon">
+        <h3>Praktis & Cepat</h3>
+        <p>Cocok untuk kamu yang sibuk tapi tetap ingin gaya hidup sehat setiap hari.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-sandlove {
+    background-color: #FFF8E7;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .why-sandlove h2 {
+    font-size: 32px;
+    color: var(--grill-brown);
+    margin-bottom: 12px;
+  }
+
+  .why-sandlove .muted {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    color: #6B6B6B;
+  }
+
+  .why-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .why-item {
+    max-width: 260px;
+  }
+
+  .why-icon {
+  width: 250px;
+  height: 190px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(155,94,39,0.1);
+}
+ 
+</style>
+
+
+<!-- Features -->
+<section id="features" class="features">
+  <div class="feat">
+    <img src="Gemini_Generated_Image_wituivwituivwitu.png" alt="Roti Pilihan" class="feat-img">
+    <h3>Roti Pilihan</h3>
+    <p>Roti berkualitas untuk energi tahan lama dan serat yang baik.</p>
+  </div>
+  <div class="feat">
+    <img src="Gemini_Generated_Image_rfn70rfn70rfn70r.png" alt="Sayuran Segar" class="feat-img">
+    <h3>Sayuran Segar</h3>
+    <p>Selada, tomat, dan sayur lain dipilih setiap hari untuk kesegaran maksimal.</p>
+  </div>
+  <div class="feat">
+    <img src="ayam dan telur.jpg" alt="Isian Rendah Lemak" class="feat-img">
+    <h3>Isian Rendah Lemak</h3>
+    <p>Pilihan isian sehat: ayam panggang dan telur.</p>
+  </div>
+</section>
+
+<style>
+  .features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 80px auto;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .feat {
+    max-width: 260px;
+  }
+
+  .feat-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  }
+</style>
+
+     <!-- Team Section -->
+    <section class="team">
+      <div class="container" style="max-width:1100px; margin:0 auto; text-align:center; padding:40px 20px;">
+        <h2 style="font-size:32px; font-weight:700; margin-bottom:12px; color:var(--grill-brown);">
+          Kenalan Yuk Sama Tim Kami 👋
+        </h2>
+        <p class="muted" style="margin-bottom:30px;">
+          Di balik setiap sandwich lezat SandLove, ada tim yang penuh semangat menghadirkan cita rasa sehat dan nikmat untukmu!
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px; justify-items:center;">
+          <!-- Anggota 1 -->
+          <div style="text-align:center;">
+            <img src="Screenshot 2025-11-11 231508.png" alt="Riska Dea Bakri" style="width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.1); margin-bottom:10px;">
+            <h3 style="margin:0; font-size:18px; font-weight:700;">Riska Dea Bakri</h3>
+            <p class="muted">Hustler</p>
+          </div>
+
+          <!-- Anggota 2 -->
+          <div style="text-align:center;">
+            <img src="Screenshot 2025-11-11 231426.png" alt="Aisyah Noviani" style="width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.1); margin-bottom:10px;">
+            <h3 style="margin:0; font-size:18px; font-weight:700;">Aisyah Noviani</h3>
+            <p class="muted">Hipster</p>
+          </div>
+
+          <!-- Anggota 3 -->
+          <div style="text-align:center;">
+            <img src="Screenshot 2025-11-11 231530.png" alt="Fairuz Radhyana Firyaal" style="width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.1); margin-bottom:10px;">
+            <h3 style="margin:0; font-size:18px; font-weight:700;">Fairuz Radhyana Firyaal</h3>
+            <p class="muted">Hipster</p>
+          </div>
+
+          <!-- Anggota 4 -->
+          <div style="text-align:center;">
+            <img src="Screenshot 2025-11-11 231448.png" alt="Tubagus Muhammad Akhtar Al Kautsar" style="width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.1); margin-bottom:10px;">
+            <h3 style="margin:0; font-size:18px; font-weight:700;">Tubagus Muhammad Akhtar Al Kautsar</h3>
+            <p class="muted">Hacker</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- Testimonials -->
+    <section class="testi">
+      <h2>Apa Kata Mereka</h2>
+      <div class="testi-list">
+        <div class="tcard">
+          <strong>Nailul</strong>
+          <p class="muted">"Enak banget sandwich nya ngga hambar."</p>
+        </div>
+        <div class="tcard">
+          <strong>Ivan</strong>
+          <p class="muted">"Porsinya pas, murah, dan rasanya seimbang. Recomended!"</p>
+        </div>
+        <div class="tcard">
+          <strong>Farid</strong>
+          <p class="muted">"Sejauh ini ga nyesel sih beli ini. Enak!"</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+      <div class="cta-wrap">
+        <div>
+          <h2>Siap coba SandLove?</h2>
+          <p class="muted">Murah, Sehat, Nikmat — Pesan sekarang dan rasakan bedanya!</p>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center">
+          <a class="btn-primary" href="https://wa.me/6282180750761?text=Halo%20SandLove!%20Saya%20mau%20pesan%20SandLove" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          <a class="btn-outline" href="#features">Lihat Bahan</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="padding:20px; text-align:center; color:var(--muted); font-size:14px">© SandLove — Murah • Sehat • Nikmat</footer>
+
+  <div class="float-order">
+    <a href="https://wa.me/6282180750761?text=Halo%20SandLove!%20Saya%20mau%20pesan%20SandLove" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48C18.12 1.08 14.84 0 11.56 0 5.3 0 .44 4.86.44 11.12c0 1.96.52 3.87 1.51 5.56L0 24l7.63-2.03c1.62.44 3.3.67 5.06.67 6.26 0 11.12-4.87 11.12-11.13 0-3.28-1.08-6.56-3.09-8.99z" fill="#fff"/><path d="M17.3 14.97c-.4-1.99-2.32-3.58-4.24-3.76-.98-.1-1.77.45-2.34 1.04l-.68.69c-.2.2-.52.27-.79.18-.96-.34-2.25-.99-3.04-1.66-.38-.31-.51-.83-.33-1.26C6.08 9.66 7.4 7.9 8.93 6.96c.89-.57 2.02-.8 3.12-.63 3.08.45 5.48 3.46 5.14 6.71-.07.72-.3 1.29-.79 1.93z" fill="#fff"/></svg>
+      Order
+    </a>
+  </div>
+
+  <script>
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
